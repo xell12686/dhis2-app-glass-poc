@@ -14,8 +14,6 @@
         "noEmit": true,
         "noImplicitAny": true,
         "jsx": "react-jsx",
-        "noUnusedParameters": false,
-        "noUnusedLocals": false,
         "strictNullChecks": true,
         "noUncheckedIndexedAccess": true,
         "experimentalDecorators": true,

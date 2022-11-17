@@ -1,49 +1,23 @@
 import { render, RenderResult } from "@testing-library/react";
-import { SnackbarProvider } from "@eyeseetea/d2-ui-components";
 import { ReactNode } from "react";
-import { getCompositionRoot } from "../CompositionRoot";
-import { getMockApi } from "../types/d2-api";
-import { AppContext, AppContextState } from "../webapp/contexts/app-context";
-import { Instance } from "../data/entities/Instance";
-import { User } from "../domain/entities/User";
+import { CompositionRoot } from "../CompositionRoot";
+import { DataElementsTestRepository } from "../data/DataElementsTestRepository";
+import { GetDataElementsUseCase } from "../domain/usecases/GetDataElementsUseCase";
+import { AppContext } from "../webapp/contexts/AppContext";
 
-export function getTestUser(): User {
+function getTestCompositionRoot(): CompositionRoot {
+    const dataElementsRepository = new DataElementsTestRepository();
+
     return {
-        id: "xE7jOejl9FI",
-        name: "John Traore",
-        username: "admin",
-        userGroups: [],
-        userRoles: [],
+        dataElements: {
+            get: new GetDataElementsUseCase(dataElementsRepository),
+        },
     };
 }
 
-export function getTestConfig() {
-    return {};
+export function getReactComponent(children: ReactNode): TestComponent {
+    const context = { compositionRoot: getTestCompositionRoot() };
+    return render(<AppContext.Provider value={context}>{children}</AppContext.Provider>);
 }
 
-export function getTestD2() {
-    return {};
-}
-
-export function getTestContext() {
-    // Mock api was working with axios but not with fetch
-    const { api } = getMockApi();
-    const instance = new Instance({ url: "http://localhost:8080" });
-    const context = {
-        api: api,
-        d2: getTestD2(),
-        currentUser: getTestUser(),
-        config: getTestConfig(),
-        compositionRoot: getCompositionRoot(instance),
-    };
-
-    return { api, context };
-}
-
-export function getReactComponent(children: ReactNode, context: AppContextState): RenderResult {
-    return render(
-        <AppContext.Provider value={context}>
-            <SnackbarProvider>{children}</SnackbarProvider>
-        </AppContext.Provider>
-    );
-}
+export type TestComponent = RenderResult;

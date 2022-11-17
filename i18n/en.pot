@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-08-25T12:21:36.218Z\n"
-"PO-Revision-Date: 2021-08-25T12:21:36.218Z\n"
+"POT-Creation-Date: 2022-08-31T10:35:55.820Z\n"
+"PO-Revision-Date: 2022-08-31T10:35:55.820Z\n"
 
 msgid "Add"
 msgstr ""
@@ -17,11 +17,5 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-msgid "Help"
-msgstr ""
-
-msgid "Hello {{name}}"
-msgstr ""
-
-msgid "Detail page"
+msgid "Data Elements"
 msgstr ""

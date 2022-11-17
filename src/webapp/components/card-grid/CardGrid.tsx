@@ -3,25 +3,27 @@ import styled from "styled-components";
 import { PageHeader } from "../page-header/PageHeader";
 import { MenuCard, MenuCardProps } from "./MenuCard";
 
-export const CardGrid: React.FC<CardGridProps> = React.memo(({ title, cards, onBackClick }) => {
+export const CardGrid: React.FC<CardGridProps> = props => {
+    const { title, cards, onBackClick } = props;
+
     return (
         <React.Fragment>
-            {!!title && <PageHeader title={title} onBackClick={onBackClick} />}
+            {title && <PageHeader title={title} onBackClick={onBackClick} />}
 
             <Container>
-                {cards.map(({ key, title, children }) => (
-                    <div key={key}>
-                        {!!title && <Title>{title}</Title>}
+                {cards.map(card => (
+                    <React.Fragment key={card.key}>
+                        {card.title && <Title data-testid="section-title">{card.title}</Title>}
 
-                        {children.map(props => (
+                        {card.children.map(props => (
                             <MenuCard key={props.name} {...props} />
                         ))}
-                    </div>
+                    </React.Fragment>
                 ))}
             </Container>
         </React.Fragment>
     );
-});
+};
 
 export interface CardGridProps {
     cards: Card[];
@@ -37,8 +39,6 @@ export interface Card {
 
 const Container = styled.div`
     margin-left: 30px;
-    display: flex;
-    flex-direction: column;
 `;
 
 const Title = styled.h1`

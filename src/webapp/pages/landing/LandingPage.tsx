@@ -1,28 +1,34 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import styled from "styled-components";
+import { AppContent } from "../../components/app-content/AppContent";
+import { AppFooter } from "../../components/app-footer/AppFooter";
+import { AppSideNav } from "../../components/app-sidenav/AppSideNav";
 import { Card, CardGrid } from "../../components/card-grid/CardGrid";
 
-export const LandingPage: React.FC = React.memo(() => {
-    const history = useHistory();
+export const LandingPage: React.FC = () => {
+    return (
+        <Wrapper>
+            <AppSideNav />
+            <main>
+                <AppContent />
+                <AppFooter />
+            </main>
+        </Wrapper>
+    );
+};
 
-    const cards: Card[] = [
-        {
-            title: "Section",
-            key: "main",
-            children: [
-                {
-                    name: "John",
-                    description: "Entry point 1",
-                    listAction: () => history.push("/for/John"),
-                },
-                {
-                    name: "Mary",
-                    description: "Entry point 2",
-                    listAction: () => history.push("/for/Mary"),
-                },
-            ],
-        },
-    ];
-
-    return <CardGrid cards={cards} />;
-});
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 30px 40px;
+    main {
+        min-height: calc(100vh - 100px);
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+`;

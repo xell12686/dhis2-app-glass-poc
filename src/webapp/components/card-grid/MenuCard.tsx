@@ -10,37 +10,37 @@ import AddIcon from "@material-ui/icons/Add";
 import ViewListIcon from "@material-ui/icons/ViewList";
 import React from "react";
 import styled from "styled-components";
-import i18n from "../../../locales";
+import i18n from "../../../utils/i18n";
 
-export const MenuCard: React.FC<MenuCardProps> = React.memo(
-    ({ name, description, addAction, listAction = () => {} }) => {
-        return (
-            <Card>
-                <Header onClick={listAction} title={name} />
+export const MenuCard: React.FC<MenuCardProps> = props => {
+    const { name, description, addAction, listAction = () => {} } = props;
 
-                <Content>{description}</Content>
+    return (
+        <Card>
+            <Header onClick={listAction} title={name} />
 
-                <Actions disableSpacing>
-                    {addAction && (
-                        <Tooltip title={i18n.t("Add")} placement="top">
-                            <IconButton key="add" onClick={addAction}>
-                                <AddIcon />
-                            </IconButton>
-                        </Tooltip>
-                    )}
+            <Content>{description}</Content>
 
-                    {listAction && (
-                        <Tooltip title={i18n.t("List")} placement="top">
-                            <IconButton key="list" onClick={listAction}>
-                                <ViewListIcon />
-                            </IconButton>
-                        </Tooltip>
-                    )}
-                </Actions>
-            </Card>
-        );
-    }
-);
+            <Actions disableSpacing>
+                {addAction && (
+                    <Tooltip title={i18n.t("Add")} placement="top">
+                        <IconButton key="add" onClick={addAction}>
+                            <AddIcon />
+                        </IconButton>
+                    </Tooltip>
+                )}
+
+                {listAction && (
+                    <Tooltip title={i18n.t("List")} placement="top">
+                        <IconButton key="list" onClick={listAction}>
+                            <ViewListIcon />
+                        </IconButton>
+                    </Tooltip>
+                )}
+            </Actions>
+        </Card>
+    );
+};
 
 export interface MenuCardProps {
     name: string;

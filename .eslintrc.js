@@ -1,22 +1,12 @@
 /** @format */
 
 module.exports = {
-    extends: [
-        "react-app",
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:cypress/recommended",
-        "plugin:@typescript-eslint/recommended",
-    ],
+    extends: ["react-app", "eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended"],
     parser: "@typescript-eslint/parser",
-    parserOptions: {
-        warnOnUnsupportedTypeScriptVersion: false,
-    },
     rules: {
         "no-console": ["warn", { allow: ["debug", "warn", "error"] }],
         "@typescript-eslint/camelcase": "off",
         "@typescript-eslint/explicit-function-return-type": ["off"],
-        "unused-imports/no-unused-imports": "warn",
         "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
         "react/prop-types": "off",
         "react/display-name": "off",
@@ -46,8 +36,7 @@ module.exports = {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
     },
-    plugins: ["cypress", "@typescript-eslint", "react-hooks", "unused-imports"],
-    env: { "cypress/globals": true },
+    plugins: ["@typescript-eslint", "react-hooks"],
     settings: {
         react: {
             pragma: "React",

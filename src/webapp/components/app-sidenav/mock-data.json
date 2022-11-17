@@ -1,0 +1,83 @@
+{
+    "pageTitle": "Home",
+    "navItems": [
+        {
+            "name": "AMR",
+            "color": "secondary",
+            "subItems": [
+                {
+                    "name": "Current Call",
+                    "url": "/#"
+                },
+                {
+                    "name": "Reports",
+                    "url": "/#"
+                },
+                {
+                    "name": "Upload History",
+                    "url": "/#"
+                },
+                {
+                    "name": "Calls History",
+                    "url": "/#"
+                },
+                {
+                    "name": "Country Information",
+                    "url": "/#"
+                }
+            ]
+        },
+        {
+            "name": "AMC",
+            "color": "tertiary",
+            "subItems": [
+                {
+                    "name": "Current Call",
+                    "url": "/#"
+                },
+                {
+                    "name": "Reports",
+                    "url": "/#"
+                },
+                {
+                    "name": "Upload History",
+                    "url": "/#"
+                },
+                {
+                    "name": "Calls History",
+                    "url": "/#"
+                },
+                {
+                    "name": "Country Information",
+                    "url": "/#"
+                }
+            ]
+        },
+        {
+            "name": "EGASP",
+            "color": "primary",
+            "subItems": [
+                {
+                    "name": "Current Call",
+                    "url": "/#"
+                },
+                {
+                    "name": "Reports",
+                    "url": "/#"
+                },
+                {
+                    "name": "Upload History",
+                    "url": "/#"
+                },
+                {
+                    "name": "Calls History",
+                    "url": "/#"
+                },
+                {
+                    "name": "Country Information",
+                    "url": "/#"
+                }
+            ]
+        }
+    ]
+}
