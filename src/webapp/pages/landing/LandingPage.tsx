@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { AppContent } from "../../components/app-content/AppContent";
 import { AppFooter } from "../../components/app-footer/AppFooter";
 import { AppSideNav } from "../../components/app-sidenav/AppSideNav";
-import { Card, CardGrid } from "../../components/card-grid/CardGrid";
+import { Card, CardGrid } from "../../components/cards/CardGrid";
 
 export const LandingPage: React.FC = () => {
     return (

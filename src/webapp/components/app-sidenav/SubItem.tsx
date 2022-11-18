@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { muiTheme } from "../app/themes/dhis2.theme";
+import { muiTheme, palette } from "../app/themes/dhis2.theme";
 import FolderIcon from "@material-ui/icons/Folder";
 import { ListItemIcon, ListItemText, Collapse } from "@material-ui/core";
 import { ExpandLess, ExpandMore, StarBorder } from "@material-ui/icons";
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
+import ListItem, { ListItemProps } from "@material-ui/core/ListItem";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
 export interface SubItemProps {
     color: string;
@@ -34,9 +35,9 @@ export const SubItem: React.FC<SubItemProps> = props => {
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     {props.items.map((item, i) => (
-                        <ListItem button key={i} className={classes.nested}>
+                        <StyledListItem button key={i} className={classes.nested} color={palette[props.color].light}>
                             <ListItemText primary={item.name} />
-                        </ListItem>
+                        </StyledListItem>
                     ))}
                 </List>
             </Collapse>
@@ -56,3 +57,10 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     })
 );
+
+const StyledListItem = styled(ListItem)<ListItemProps>`
+    &:hover {
+        background-color: ${props => props.color || palette.background.hover} !important;
+        color: white;
+    }
+`;

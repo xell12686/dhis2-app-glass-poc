@@ -19,8 +19,8 @@ export const colors = {
     accentQuaternaryLight: "#CCBBE2",
     accentQuaternaryDark: "#5B198B",
 
-    gradientBg: "linear-gradient(45deg, rgba(155,186,232,1) 0%, rgba(196,149,218,1) 100%)",
-    gradientLightBg: "linear-gradient(45deg, rgba(155,186,232,1) 0%, rgba(196,149,218,1) 100%)",
+    gradientBg: "linear-gradient(180deg, rgba(155,186,232,1) 0%, rgba(196,149,218,1) 100%)",
+    gradientLightBg: "linear-gradient(180deg, rgba(155,186,232,1) 0%, rgba(196,149,218,1) 100%)",
 
     black: "#212121",
     greyBlack: "#494949",
